@@ -65,29 +65,6 @@ trivo_server/
 
 ## Core Components
 
-### Search Dropdown Components
-The system uses reusable search dropdown components for employee/manager selection:
-
-#### ManagerSearchDropdown
-```typescript
-// Usage for manager selection
-<ManagerSearchDropdown
-  value={selectedManagerId}
-  onChange={(managerId) => setManagerId(managerId)}
-  placeholder="Search and select manager"
-/>
-```
-
-#### ManagerProjectSearch
-```typescript
-// Usage for employee selection in projects
-<ManagerProjectSearch
-  role="employee"
-  selectedUser={selectedEmployee}
-  onSelect={(user) => handleEmployeeSelect(user)}
-/>
-```
-
 ### Project Assignment Flow
 1. **Project Selection**: Search and select existing projects
 2. **Employee Assignment**: Search dropdown for employee selection
@@ -110,73 +87,6 @@ The system uses reusable search dropdown components for employee/manager selecti
 ### Search Endpoints
 - `GET /search?query=&role=` - Search users by name and role
 - `GET /projectManagerSearch/:managerId?query=` - Search projects by manager
-
-## Setup Instructions
-
-### Prerequisites
-- Node.js (v16 or higher)
-- MongoDB
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd TrivoGroup
-```
-
-2. **Install dependencies**
-```bash
-# Frontend
-cd trivo_client
-npm install
-
-# Backend
-cd ../trivo_server
-npm install
-```
-
-3. **Environment Configuration**
-
-Create `.env` files:
-
-**trivo_server/.env**
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/trivogroup
-JWT_SECRET=your-jwt-secret
-CLOUDINARY_CLOUD_NAME=your-cloudinary-name
-CLOUDINARY_API_KEY=your-cloudinary-key
-CLOUDINARY_API_SECRET=your-cloudinary-secret
-EMAIL_USER=your-email
-EMAIL_PASS=your-email-password
-```
-
-**trivo_client/.env.local**
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
-```
-
-4. **Database Setup**
-```bash
-# Start MongoDB
-mongod
-
-# The application will create collections automatically
-```
-
-5. **Start Development Servers**
-
-```bash
-# Backend
-cd trivo_server
-npm run dev
-
-# Frontend (new terminal)
-cd trivo_client
-npm run dev
-```
 
 ## Usage Guide
 
@@ -260,11 +170,6 @@ npm run dev
    - Check connection string format
    - Ensure database permissions
 
-### Debug Mode
-Enable debug logging by setting:
-```bash
-DEBUG=trivo:* npm run dev
-```
 
 ## Contributing
 1. Fork the repository
@@ -273,5 +178,3 @@ DEBUG=trivo:* npm run dev
 4. Push to branch and create pull request
 5. Ensure all tests pass
 
-## Support
-For issues and questions, please create an issue in the repository or contact the development team.
